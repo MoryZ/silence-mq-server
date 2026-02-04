@@ -30,7 +30,7 @@ public abstract class AbstractTimerTask implements TimerTask<String> {
                     groupName, retryId, retryTaskId, namespaceId, e);
         } finally {
             // 先清除时间轮的缓存
-            RetryTimerWheel.clearCache(idempotentKey());
+            RetryTimerWheel.removeCache(idempotentKey());
 
         }
     }

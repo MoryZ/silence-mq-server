@@ -1,5 +1,6 @@
 package com.old.silence.job.server.retry.task.support.idempotent;
 
+import com.old.silence.job.server.task.common.idempotent.TimerIdempotent;
 
 public class IdempotentHolder {
 

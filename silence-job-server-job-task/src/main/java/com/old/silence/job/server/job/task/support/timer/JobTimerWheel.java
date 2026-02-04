@@ -56,11 +56,11 @@ public class JobTimerWheel extends AbstractTimerWheel {
         INSTANCE.register(task, delay);
     }
 
-    public static boolean isExisted(String idempotentKey) {
+    public static boolean checkExisted(String idempotentKey) {
         return INSTANCE.isExisted(idempotentKey);
     }
 
-    public static void clearCache(String idempotentKey) {
+    public static void removeCache(String idempotentKey) {
         INSTANCE.clearCache(idempotentKey);
     }
 }

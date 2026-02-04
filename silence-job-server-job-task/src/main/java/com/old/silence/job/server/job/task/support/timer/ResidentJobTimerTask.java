@@ -29,7 +29,7 @@ public class ResidentJobTimerTask implements TimerTask<String> {
     public void run(Timeout timeout) throws Exception {
         try {
             // 清除时间轮的缓存
-            JobTimerWheel.clearCache(idempotentKey());
+            JobTimerWheel.removeCache(idempotentKey());
             JobTaskPrepareDTO jobTaskPrepare = JobTaskConverter.INSTANCE.toJobTaskPrepare(job);
             jobTaskPrepare.setTaskExecutorScene(JobTaskExecutorScene.AUTO_JOB);
             // 执行预处理阶段

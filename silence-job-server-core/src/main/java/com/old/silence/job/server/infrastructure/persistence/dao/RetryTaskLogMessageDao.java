@@ -13,7 +13,6 @@ import java.util.List;
  * </p>
  *
  */
-@Mapper
 public interface RetryTaskLogMessageDao extends BaseMapper<RetryTaskLogMessage> {
 
     int insertBatch(@Param("list") List<RetryTaskLogMessage> list);

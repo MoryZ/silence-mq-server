@@ -4,6 +4,5 @@ import org.apache.ibatis.annotations.Mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.old.silence.job.server.domain.model.NotifyConfig;
 
-@Mapper
 public interface NotifyConfigDao extends BaseMapper<NotifyConfig> {
 }

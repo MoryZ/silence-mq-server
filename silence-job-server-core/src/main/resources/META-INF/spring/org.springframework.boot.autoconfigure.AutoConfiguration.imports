@@ -1,1 +1,1 @@
-com.old.silence.job.server.config.SilenceJobTemplateAutoConfiguration
+com.old.silence.job.server.config.RepositoryAutoConfiguration

@@ -38,6 +38,11 @@
         </dependency>
         <dependency>
             <groupId>com.old.silence</groupId>
+            <artifactId>silence-job-server-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.old.silence</groupId>
             <artifactId>silence-job-server-job-task</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -58,5 +63,17 @@
             <artifactId>spring-tx</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.old.silence.job.server.SilenceJobCenterApplication</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

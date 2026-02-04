@@ -29,7 +29,7 @@ public class WorkflowTimeoutCheckTask implements TimerTask<String> {
 
     @Override
     public void run(Timeout timeout) throws Exception {
-        JobTimerWheel.clearCache(idempotentKey());
+        JobTimerWheel.removeCache(idempotentKey());
         WorkflowTaskBatchDao workflowTaskBatchDao = SilenceSpringContext.getBean(WorkflowTaskBatchDao.class);
         WorkflowTaskBatch workflowTaskBatch = workflowTaskBatchDao.selectById(workflowTaskBatchId);
         // 幂等检查

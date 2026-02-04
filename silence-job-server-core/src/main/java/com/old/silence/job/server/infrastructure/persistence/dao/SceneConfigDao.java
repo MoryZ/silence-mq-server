@@ -4,7 +4,6 @@ import org.apache.ibatis.annotations.Mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.old.silence.job.server.domain.model.RetrySceneConfig;
 
-@Mapper
 public interface SceneConfigDao extends BaseMapper<RetrySceneConfig> {
 
 }

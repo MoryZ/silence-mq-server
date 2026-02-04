@@ -13,7 +13,6 @@ import com.old.silence.job.server.vo.JobBatchSummaryResponseDO;
 import java.util.List;
 
 
-@Mapper
 public interface JobTaskBatchDao extends BaseMapper<JobTaskBatch> {
 
     List<JobBatchResponseDO> selectJobBatchPageList(IPage<JobTaskBatch> iPage, @Param("ew") Wrapper<JobTaskBatch> wrapper);

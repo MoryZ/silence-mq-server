@@ -32,7 +32,7 @@ public class WaitRetryPrepareHandler implements RetryPrePareHandler  {
     @Override
     public void handle(RetryTaskPrepareDTO prepare) {
         // 若时间轮中数据不存在则重新加入
-        if (!RetryTimerWheel.isExisted(MessageFormat.format(RetryTimerTask.IDEMPOTENT_KEY_PREFIX, prepare.getRetryTaskId()))) {
+        if (!RetryTimerWheel.checkExisted(MessageFormat.format(RetryTimerTask.IDEMPOTENT_KEY_PREFIX, prepare.getRetryTaskId()))) {
             log.info("存在待处理任务且时间轮中不存在 retryTaskId:[{}]", prepare.getRetryTaskId());
 
             // 进入时间轮

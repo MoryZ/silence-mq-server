@@ -13,7 +13,7 @@ import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import com.old.silence.job.common.constant.SystemConstants;
 import com.old.silence.job.common.context.SilenceSpringContext;
-import com.old.silence.job.common.util.NetUtil;
+import com.old.silence.job.common.util.NetUtils;
 import com.old.silence.job.log.SilenceJobLog;
 import com.old.silence.job.log.constant.LogFieldConstants;
 import com.old.silence.job.log.dto.LogContentDTO;
@@ -52,7 +52,7 @@ public class SilenceJobServerLogbackAppender<E> extends UnsynchronizedAppenderBa
         logContentDTO.addThreadField(event.getThreadName());
         logContentDTO.addLocationField(getLocationField(event));
         logContentDTO.addThrowableField(getThrowableField(event));
-        logContentDTO.addHostField(NetUtil.getLocalIpStr());
+        logContentDTO.addHostField(NetUtils.getLocalIpStr());
         logContentDTO.addPortField(SilenceSpringContext.getBean(SystemProperties.class).getServerPort());
 
         LogMetaDTO logMetaDTO = null;

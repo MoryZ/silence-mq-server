@@ -125,7 +125,7 @@ public class DashboardService {
                         Collectors.summarizingLong(i -> i.getMaxCountNum() + i.getRunningNum() + i.getSuspendNum() + i.getFinishNum())));
         for (Map.Entry<Instant, LongSummaryStatistics> map : summaryStatisticsMap.entrySet()) {
             if (retryTaskBarMap.containsKey(LocalDateTime.of(LocalDate.ofInstant(map.getKey(), ZoneId.systemDefault()), LocalTime.MIN).toInstant(ZoneOffset.UTC))) {
-                DashboardCardResponseVO.RetryTaskBar retryTaskBar = retryTaskBarMap.get(LocalDateTimeUtil.beginOfDay(LocalDate.ofInstant(map.getKey(), ZoneId.systemDefault())).toInstant(ZoneOffset.UTC));
+                DashboardCardResponseVO.RetryTaskBar retryTaskBar = retryTaskBarMap.get(LocalDateTimeUtil.beginOfDay(LocalDateTime.ofInstant(map.getKey(), ZoneId.systemDefault())).toInstant(ZoneOffset.UTC));
                 retryTaskBar.setX(map.getKey().toString());
                 retryTaskBar.setTaskTotal(map.getValue().getSum());
             }

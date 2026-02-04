@@ -10,7 +10,6 @@ import com.old.silence.job.server.vo.DashboardRetryResponseDO;
 
 import java.util.List;
 
-@Mapper
 public interface RetryDao extends BaseMapper<Retry> {
 
     int insertBatch(@Param("list") List<Retry> list);

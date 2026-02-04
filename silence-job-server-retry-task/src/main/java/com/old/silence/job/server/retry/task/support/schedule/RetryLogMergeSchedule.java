@@ -133,7 +133,7 @@ public class RetryLogMergeSchedule extends AbstractSchedule implements Lifecycle
                         groupingBy(message -> Triple.of(message.getNamespaceId(), message.getGroupName(),
                                 message.getRetryTaskId())))
                 .entrySet().stream()
-                .filter(entry -> entry.getValue().size() >= 2).collect(Collectors.toList());
+                .filter(entry -> entry.getValue().size() >= 2).toList();
 
         for (Map.Entry<Triple<String, String, BigInteger>/*taskId*/, List<RetryTaskLogMessage>> jobLogMessageMap : jobLogMessageGroupList) {
             

@@ -17,7 +17,7 @@ import com.old.silence.job.common.model.ApiResult;
 import com.old.silence.job.common.model.SilenceJobRequest;
 import com.old.silence.job.common.rpc.RpcContext;
 import com.old.silence.job.common.rpc.SilenceJobFuture;
-import com.old.silence.job.common.util.NetUtil;
+import com.old.silence.job.common.util.NetUtils;
 import com.old.silence.job.log.SilenceJobLog;
 import com.old.silence.job.server.common.cache.CacheRegisterTable;
 import com.old.silence.job.server.common.cache.CacheToken;
@@ -105,7 +105,7 @@ public class RpcClientInvokeHandler implements InvocationHandler {
         int size = serverNodeSet.size();
         for (int count = 1; count <= size; count++) {
             log.debug("Start request client. count:[{}] clientId:[{}] clientAddr:[{}:{}] serverIp:[{}]", count, hostId,
-                    hostIp, hostPort, NetUtil.getLocalIpStr());
+                    hostIp, hostPort, NetUtils.getLocalIpStr());
             ApiResult result = requestRemote(method, args, annotation, count);
             if (Objects.nonNull(result)) {
                 return result;
@@ -167,14 +167,14 @@ public class RpcClientInvokeHandler implements InvocationHandler {
 
             log.debug("Request client success. count:[{}] clientId:[{}] clientAddr:[{}:{}] serverIp:[{}]", count,
                     hostId,
-                    hostIp, hostPort, NetUtil.getLocalIpStr());
+                    hostIp, hostPort, NetUtils.getLocalIpStr());
 
             return result;
         } catch (ExecutionException ex) {
             // 网络异常 TimeoutException |
             if (ex.getCause() instanceof SilenceJobRemotingTimeOutException && failover) {
                 log.error("request client I/O error, count:[{}] clientId:[{}] clientAddr:[{}:{}] serverIp:[{}]", count,
-                        hostId, hostIp, hostPort, NetUtil.getLocalIpStr(), ex);
+                        hostId, hostIp, hostPort, NetUtils.getLocalIpStr(), ex);
 
                 // 进行路由剔除处理
                 CacheRegisterTable.remove(groupName, hostId);
@@ -195,12 +195,12 @@ public class RpcClientInvokeHandler implements InvocationHandler {
             } else {
                 // 其他异常继续抛出
                 log.error("request client error.count:[{}] clientId:[{}] clientAddr:[{}:{}] serverIp:[{}]", count,
-                        hostId, hostIp, hostPort, NetUtil.getLocalIpStr(), ex);
+                        hostId, hostIp, hostPort, NetUtils.getLocalIpStr(), ex);
                 throw ex.getCause();
             }
         } catch (Exception ex) {
             log.error("request client unknown exception. count:[{}] clientId:[{}] clientAddr:[{}:{}] serverIp:[{}]",
-                    count, hostId, hostIp, hostPort, NetUtil.getLocalIpStr(), ex);
+                    count, hostId, hostIp, hostPort, NetUtils.getLocalIpStr(), ex);
 
             Throwable throwable = ex;
             if (ex.getClass().isAssignableFrom(RetryException.class)) {

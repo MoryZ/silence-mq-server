@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.old.silence</groupId>
         <artifactId>silence-job-server</artifactId>
-        <version>1.8.0-SNAPSHOT</version>
+        <version>3.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>silence-job-server-core</artifactId>
@@ -18,21 +18,6 @@
     </properties>
 
     <dependencies>
-        <!-- Core Module Dependencies -->
-        <dependency>
-            <groupId>com.old.silence.job</groupId>
-            <artifactId>silence-job-server-core-model</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.old.silence.job</groupId>
-            <artifactId>silence-job-server-core-repository</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.old.silence.job</groupId>
-            <artifactId>silence-job-server-core-service</artifactId>
-        </dependency>
 
         <!-- External Dependencies -->
         <dependency>

@@ -33,7 +33,7 @@ public class WaitJobPrepareHandler extends AbstractJobPrepareHandler {
         log.debug("存在待处理任务. taskBatchId:[{}]", jobPrepareDTO.getTaskBatchId());
 
         // 若时间轮中数据不存在则重新加入
-        if (!JobTimerWheel.isExisted(MessageFormat.format(JobTimerTask.IDEMPOTENT_KEY_PREFIX, jobPrepareDTO.getTaskBatchId()))) {
+        if (!JobTimerWheel.checkExisted(MessageFormat.format(JobTimerTask.IDEMPOTENT_KEY_PREFIX, jobPrepareDTO.getTaskBatchId()))) {
             log.info("存在待处理任务且时间轮中不存在 taskBatchId:[{}]", jobPrepareDTO.getTaskBatchId());
 
             // 进入时间轮

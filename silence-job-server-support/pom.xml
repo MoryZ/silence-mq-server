@@ -8,7 +8,7 @@
     <parent>
         <groupId>com.old.silence</groupId>
         <artifactId>silence-job-server</artifactId>
-        <version>1.8.0-SNAPSHOT</version>
+        <version>3.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>silence-job-server-support</artifactId>
@@ -16,26 +16,22 @@
     <description>Common support components (DTO, Cache, Lock, Utils, etc.)</description>
 
     <dependencies>
-        <!-- Core Dependencies -->
-        <dependency>
-            <groupId>com.old.silence.job</groupId>
-            <artifactId>silence-job-server-core-model</artifactId>
-        </dependency>
 
+        <!-- Server Common (for DTOs, interfaces, etc.) -->
         <dependency>
-            <groupId>com.old.silence.job</groupId>
-            <artifactId>silence-job-server-core-service</artifactId>
+            <groupId>com.old.silence</groupId>
+            <artifactId>silence-job-server-common</artifactId>
         </dependency>
 
         <!-- Common Dependencies -->
         <dependency>
-            <groupId>com.old.silence.job</groupId>
+            <groupId>com.old.silence</groupId>
             <artifactId>silence-job-common-enum</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.old.silence.job</groupId>
-            <artifactId>silence-job-common-util</artifactId>
+            <groupId>com.old.silence</groupId>
+            <artifactId>silence-job-common-core</artifactId>
         </dependency>
 
         <!-- Spring -->
@@ -48,6 +44,16 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
+        </dependency>
+
+        <!-- Netty -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-codec-http</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-transport</artifactId>
         </dependency>
 
         <!-- Lombok -->

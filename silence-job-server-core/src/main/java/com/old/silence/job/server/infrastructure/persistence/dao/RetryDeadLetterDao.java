@@ -7,7 +7,6 @@ import com.old.silence.job.server.domain.model.RetryDeadLetter;
 
 import java.util.List;
 
-@Mapper
 public interface RetryDeadLetterDao extends BaseMapper<RetryDeadLetter> {
 
     int insertBatch(@Param("list") List<RetryDeadLetter> list);

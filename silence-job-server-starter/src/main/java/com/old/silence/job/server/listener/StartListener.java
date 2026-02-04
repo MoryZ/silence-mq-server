@@ -6,7 +6,6 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import com.old.silence.job.common.constant.SystemConstants;
-import com.old.silence.job.common.util.SilenceJobVersion;
 import com.old.silence.job.log.SilenceJobLog;
 import com.old.silence.job.server.common.Lifecycle;
 
@@ -29,14 +28,14 @@ public class StartListener implements ApplicationListener<ContextRefreshedEvent>
     @Override
     public void onApplicationEvent(@NotNull ContextRefreshedEvent event) {
         if (isStarted) {
-            SilenceJobLog.LOCAL.info("silence-job server already started v{}", SilenceJobVersion.getVersion());
+            SilenceJobLog.LOCAL.info("silence-job server already started v{}", "v1.8");
             return;
         }
 
-        System.out.println(MessageFormatter.format(SystemConstants.LOGO, SilenceJobVersion.getVersion()).getMessage());
-        SilenceJobLog.LOCAL.info("silence-job server is preparing to start... v{}", SilenceJobVersion.getVersion());
+        System.out.println(MessageFormatter.format(SystemConstants.LOGO, "v1.8").getMessage());
+        SilenceJobLog.LOCAL.info("silence-job server is preparing to start... v{}", "v1.8");
         lifecycleList.forEach(Lifecycle::start);
-        SilenceJobLog.LOCAL.info("silence-job server started successfully v{}", SilenceJobVersion.getVersion());
+        SilenceJobLog.LOCAL.info("silence-job server started successfully v{}", "v1.8");
         isStarted = true;
     }
 }

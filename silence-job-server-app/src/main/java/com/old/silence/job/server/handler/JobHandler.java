@@ -82,10 +82,12 @@ public class JobHandler {
         jobTaskBatch.setOperationReason(JobOperationReason.NONE);
 
         UpdateWrapper<JobTaskBatch> wrapper = new UpdateWrapper<>();
-        wrapper.eq("id", taskBatchId)
-                .set("task_batch_status", JobTaskBatchStatus.RUNNING)
-                .set("operation_reason", JobOperationReason.NONE);
-        Assert.isTrue(jobTaskBatchDao.update(wrapper) > 0,
+        wrapper.eq("id", taskBatchId);
+
+        var updateJobTaskBatch = new JobTaskBatch();
+        updateJobTaskBatch.setTaskBatchStatus(JobTaskBatchStatus.RUNNING);
+        updateJobTaskBatch.setOperationReason(JobOperationReason.NONE);
+        Assert.isTrue(jobTaskBatchDao.update(updateJobTaskBatch, wrapper) > 0,
                 () -> new SilenceJobServerException("update job batch to running failed."));
 
         Job job = jobDao.selectById(jobTaskBatch.getJobId());

@@ -17,7 +17,6 @@ import com.old.silence.job.server.vo.DashboardRetryLineResponseDO;
 import java.util.List;
 
 
-@Mapper
 public interface JobSummaryDao extends BaseMapper<JobSummary> {
 
     int insertBatch(@Param("list") List<JobSummary> list);

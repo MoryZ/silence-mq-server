@@ -4,7 +4,6 @@ import org.apache.ibatis.annotations.Mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.old.silence.job.server.domain.model.RetryTask;
 
-@Mapper
 public interface RetryTaskDao extends BaseMapper<RetryTask> {
 
 }

@@ -8,11 +8,11 @@
     <parent>
         <groupId>com.old.silence</groupId>
         <artifactId>silence-job-server</artifactId>
-        <version>1.8.0-SNAPSHOT</version>
+        <version>3.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>silence-job-server-rpc</artifactId>
-    <name>Silence Job Server RPC</name>
+    <name>silence-job-server-rpc</name>
     <description>RPC communication layer (Netty, OkHttp, Triple protocol)</description>
 
     <dependencies>

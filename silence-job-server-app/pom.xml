@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.old.silence</groupId>
         <artifactId>silence-job-server</artifactId>
-        <version>1.8.0-SNAPSHOT</version>
+        <version>3.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>silence-job-server-app</artifactId>
@@ -24,22 +24,6 @@
         <dependency>
             <groupId>com.old.silence</groupId>
             <artifactId>platform-validation</artifactId>
-        </dependency>
-
-        <!-- Server Core Dependencies (Refactored) -->
-        <dependency>
-            <groupId>com.old.silence.job</groupId>
-            <artifactId>silence-job-server-core-model</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.old.silence.job</groupId>
-            <artifactId>silence-job-server-core-repository</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.old.silence.job</groupId>
-            <artifactId>silence-job-server-core-service</artifactId>
         </dependency>
 
         <dependency>
@@ -77,7 +61,6 @@
             <groupId>com.old.silence</groupId>
             <artifactId>silence-auth-center-client</artifactId>
             <version>2.0.1-SNAPSHOT</version>
-            <scope>provided</scope><!-- 开发时如未安装可暂时跳过，运行时必需 -->
         </dependency>
 
     </dependencies>

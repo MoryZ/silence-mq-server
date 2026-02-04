@@ -10,7 +10,6 @@ import com.old.silence.job.server.domain.model.NotifyRecipient;
  * </p>
  *
  */
-@Mapper
 public interface NotifyRecipientDao extends BaseMapper<NotifyRecipient> {
 
 }

@@ -6,10 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
-import com.old.silence.job.server.common.rpc.okhttp.OkHttp3ClientHttpRequestFactory;
-import com.old.silence.job.server.common.rpc.okhttp.RequestInterceptor;
 
 import java.util.concurrent.TimeUnit;
+
+import com.old.silence.job.server.common.rpc.okhttp.OkHttp3ClientHttpRequestFactory;
+import com.old.silence.job.server.common.rpc.okhttp.RequestInterceptor;
 
 
 @Configuration

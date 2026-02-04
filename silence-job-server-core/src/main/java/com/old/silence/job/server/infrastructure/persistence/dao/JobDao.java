@@ -1,6 +1,5 @@
 package com.old.silence.job.server.infrastructure.persistence.dao;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -10,7 +9,6 @@ import java.math.BigInteger;
 import java.util.List;
 
 
-@Mapper
 public interface JobDao extends BaseMapper<Job> {
 
     int updateBatchNextTriggerAtById(@Param("list") List<Job> list);

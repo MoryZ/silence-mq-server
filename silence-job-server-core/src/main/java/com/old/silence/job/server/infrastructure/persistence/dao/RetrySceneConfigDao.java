@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.old.silence.job.server.domain.model.GroupConfig;
 import com.old.silence.job.server.domain.model.RetrySceneConfig;
 
-@Mapper
 public interface RetrySceneConfigDao extends BaseMapper<RetrySceneConfig> {
 
 }

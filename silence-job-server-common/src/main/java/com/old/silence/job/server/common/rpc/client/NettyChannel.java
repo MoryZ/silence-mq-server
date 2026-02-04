@@ -8,7 +8,7 @@ import io.netty.handler.codec.http.*;
 import com.old.silence.job.common.constant.SystemConstants;
 import com.old.silence.job.common.context.SilenceSpringContext;
 import com.old.silence.job.common.enums.HeadersEnum;
-import com.old.silence.job.common.util.NetUtil;
+import com.old.silence.job.common.util.NetUtils;
 import com.old.silence.job.log.SilenceJobLog;
 import com.old.silence.job.server.common.config.SystemProperties;
 import com.old.silence.job.server.common.register.ServerRegister;
@@ -77,7 +77,7 @@ public class NettyChannel {
                 // 设置传递请求内容的长度
                 .set(HttpHeaderNames.CONTENT_LENGTH, request.content().readableBytes())
                 .set(HeadersEnum.HOST_ID.getKey(), ServerRegister.CURRENT_CID)
-                .set(HeadersEnum.HOST_IP.getKey(), NetUtil.getLocalIpStr())
+                .set(HeadersEnum.HOST_IP.getKey(), NetUtils.getLocalIpStr())
                 .set(HeadersEnum.GROUP_NAME.getKey(), ServerRegister.GROUP_NAME)
                 .set(HeadersEnum.HOST_PORT.getKey(), getServerPort())
                 .set(HeadersEnum.NAMESPACE.getKey(), SystemConstants.DEFAULT_NAMESPACE)

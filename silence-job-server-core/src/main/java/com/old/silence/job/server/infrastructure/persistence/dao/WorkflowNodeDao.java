@@ -1,6 +1,5 @@
 package com.old.silence.job.server.infrastructure.persistence.dao;
 
-import org.apache.ibatis.annotations.Mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.old.silence.job.server.domain.model.WorkflowNode;
 
@@ -10,7 +9,6 @@ import com.old.silence.job.server.domain.model.WorkflowNode;
  * </p>
  *
  */
-@Mapper
 public interface WorkflowNodeDao extends BaseMapper<WorkflowNode> {
 
 }

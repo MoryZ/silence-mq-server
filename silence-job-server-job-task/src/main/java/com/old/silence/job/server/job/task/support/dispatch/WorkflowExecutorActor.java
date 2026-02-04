@@ -147,7 +147,7 @@ public class WorkflowExecutorActor extends AbstractActor {
                     JobOperationReason.NONE);
 
             Workflow workflow = workflowDao.selectById(workflowTaskBatch.getWorkflowId());
-            JobTimerWheel.clearCache(
+            JobTimerWheel.removeCache(
                     MessageFormat.format(WorkflowTimerTask.IDEMPOTENT_KEY_PREFIX, taskExecute.getWorkflowTaskBatchId()));
 
             JobTimerWheel.registerWithWorkflow(() -> new WorkflowTimeoutCheckTask(taskExecute.getWorkflowTaskBatchId()),

@@ -219,7 +219,7 @@ public class JobExecutorActor extends AbstractActor {
                 @Override
                 public void afterCompletion(int status) {
                     // 清除时间轮的缓存
-                    JobTimerWheel.clearCache(MessageFormat.format(JobTimerTask.IDEMPOTENT_KEY_PREFIX, taskExecute.getTaskBatchId()));
+                    JobTimerWheel.removeCache(MessageFormat.format(JobTimerTask.IDEMPOTENT_KEY_PREFIX, taskExecute.getTaskBatchId()));
 
                     if (JobTaskBatchStatus.RUNNING == finalTaskStatus) {
 

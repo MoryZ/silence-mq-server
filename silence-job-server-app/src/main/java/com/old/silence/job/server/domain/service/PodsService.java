@@ -17,7 +17,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.old.silence.job.common.enums.NodeType;
 import com.old.silence.job.common.model.ApiResult;
-import com.old.silence.job.common.util.NetUtil;
+import com.old.silence.job.common.util.NetUtils;
 import com.old.silence.job.log.SilenceJobLog;
 import com.old.silence.job.server.api.assembler.ServerNodeResponseVOMapper;
 import com.old.silence.job.server.common.dto.DistributeInstance;
@@ -77,7 +77,7 @@ public class PodsService {
             ServerNodeExtAttrs serverNodeExtAttrs = JSON.parseObject(serverNodeResponseVO.getExtAttrs(), ServerNodeExtAttrs.class);
             try {
                 // 从远程节点取
-                String url = NetUtil.getUrl(serverNodeResponseVO.getHostIp(), serverNodeExtAttrs.getWebPort(), serverProperties.getServlet().getContextPath());
+                String url = NetUtils.getUrl(serverNodeResponseVO.getHostIp(), serverNodeExtAttrs.getWebPort(), serverProperties.getServlet().getContextPath());
                 ApiResult<List<Integer>> result = restTemplate.getForObject(url.concat(DASHBOARD_CONSUMER_BUCKET), ApiResult.class);
                 List<Integer> data = result.getData();
                 if (CollectionUtils.isNotEmpty(data)) {

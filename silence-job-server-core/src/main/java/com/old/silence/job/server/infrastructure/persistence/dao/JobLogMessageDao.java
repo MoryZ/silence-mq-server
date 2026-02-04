@@ -8,7 +8,6 @@ import com.old.silence.job.server.domain.model.JobLogMessage;
 import java.util.List;
 
 
-@Mapper
 public interface JobLogMessageDao extends BaseMapper<JobLogMessage> {
 
     int insertBatch(@Param("list") List<JobLogMessage> list);

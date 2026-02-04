@@ -8,7 +8,7 @@ import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.old.silence.core.util.CollectionUtils;
 import com.old.silence.job.common.enums.NodeType;
-import com.old.silence.job.common.util.NetUtil;
+import com.old.silence.job.common.util.NetUtils;
 import com.old.silence.job.common.util.StreamUtils;
 import com.old.silence.job.log.SilenceJobLog;
 import com.old.silence.job.server.common.cache.CacheConsumerGroup;
@@ -70,7 +70,7 @@ public class ServerRegister extends AbstractRegister {
 
         context.setGroupName(GROUP_NAME);
         context.setHostId(CURRENT_CID);
-        context.setHostIp(NetUtil.getLocalIpStr());
+        context.setHostIp(NetUtils.getLocalIpStr());
         context.setHostPort(systemProperties.getServerPort());
         context.setContextPath(Optional.ofNullable(serverProperties.getServlet().getContextPath()).orElse(StrUtil.EMPTY));
         context.setNamespaceId(NAMESPACE_ID);

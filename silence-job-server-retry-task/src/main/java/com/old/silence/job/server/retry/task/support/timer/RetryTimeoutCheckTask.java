@@ -40,7 +40,7 @@ public class RetryTimeoutCheckTask implements TimerTask<String> {
 
     @Override
     public void run(Timeout timeout) throws Exception {
-        RetryTimerWheel.clearCache(idempotentKey());
+        RetryTimerWheel.removeCache(idempotentKey());
         RetryTask retryTask = retryTaskDao.selectById(retryTaskId);
         if (Objects.isNull(retryTask)) {
             SilenceJobLog.LOCAL.error("retryTaskId:[{}] 不存在", retryTaskId);

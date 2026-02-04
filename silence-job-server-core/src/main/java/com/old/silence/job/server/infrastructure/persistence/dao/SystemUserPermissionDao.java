@@ -1,6 +1,5 @@
 package com.old.silence.job.server.infrastructure.persistence.dao;
 
-import org.apache.ibatis.annotations.Mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.old.silence.job.server.domain.model.SystemUserPermission;
 
@@ -10,7 +9,6 @@ import com.old.silence.job.server.domain.model.SystemUserPermission;
  * </p>
  *
  */
-@Mapper
 public interface SystemUserPermissionDao extends BaseMapper<SystemUserPermission> {
 
 }

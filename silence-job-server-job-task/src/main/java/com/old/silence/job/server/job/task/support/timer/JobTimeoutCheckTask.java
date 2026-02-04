@@ -36,7 +36,7 @@ public class JobTimeoutCheckTask implements TimerTask<String> {
 
     @Override
     public void run(Timeout timeout) throws Exception {
-        JobTimerWheel.clearCache(idempotentKey());
+        JobTimerWheel.removeCache(idempotentKey());
         JobTaskBatchDao jobTaskBatchDao = SilenceSpringContext.getBean(JobTaskBatchDao.class);
         JobTaskBatch jobTaskBatch = jobTaskBatchDao.selectById(taskBatchId);
         if (Objects.isNull(jobTaskBatch)) {

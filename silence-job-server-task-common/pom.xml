@@ -8,23 +8,18 @@
     <parent>
         <groupId>com.old.silence</groupId>
         <artifactId>silence-job-server</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>3.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>silence-job-server-task-common</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
     <name>silence-job-server-task-common</name>
     <description>Job 和 Retry 任务的公共逻辑层</description>
 
     <dependencies>
-        <!-- 依赖 server-core 模块 -->
+
         <dependency>
             <groupId>com.old.silence</groupId>
-            <artifactId>silence-job-server-core-model</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.old.silence</groupId>
-            <artifactId>silence-job-server-core-service</artifactId>
+            <artifactId>silence-job-server-core</artifactId>
         </dependency>
 
         <!-- 依赖 common 模块 -->
@@ -32,10 +27,7 @@
             <groupId>com.old.silence</groupId>
             <artifactId>silence-job-common-enum</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.old.silence</groupId>
-            <artifactId>silence-job-common-util</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>com.old.silence</groupId>
             <artifactId>silence-job-common-core</artifactId>

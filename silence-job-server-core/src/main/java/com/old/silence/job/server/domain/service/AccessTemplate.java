@@ -20,7 +20,7 @@ import com.old.silence.job.server.domain.service.config.SceneConfigAccess;
 import com.old.silence.job.server.domain.service.task.RetryDeadLetterTaskAccess;
 import com.old.silence.job.server.domain.service.task.RetryTaskAccess;
 import com.old.silence.job.server.domain.service.task.TaskAccess;
-import com.old.silence.job.server.exception.SilenceJobDatasourceException;
+import com.old.silence.job.server.infrastructure.exception.SilenceJobDatasourceException;
 
 /**
  * 数据处理模板类

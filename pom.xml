@@ -13,14 +13,14 @@
     <artifactId>silence-job-server</artifactId>
     <version>3.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>SilenceJob Server</name>
+    <name>silence-job-server</name>
     <description>Distributed task scheduling server with job management, scheduling, monitoring and retry services</description>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <silence-job-common.version>1.0.0</silence-job-common.version>
+        <silence-job-common.version>1.8.0-SNAPSHOT</silence-job-common.version>
     </properties>
 
     <modules>
@@ -28,9 +28,6 @@
         <module>silence-job-server-app</module>
         <module>silence-job-server-common</module>
         <module>silence-job-server-core</module>
-        <module>silence-job-server-core-model</module>
-        <module>silence-job-server-core-repository</module>
-        <module>silence-job-server-core-service</module>
         <module>silence-job-server-job-task</module>
         <module>silence-job-server-retry-task</module>
         <module>silence-job-server-rpc</module>
@@ -56,6 +53,156 @@
                 <groupId>com.old.silence</groupId>
                 <artifactId>silence-job-common-server-api</artifactId>
                 <version>${silence-job-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.old.silence</groupId>
+                <artifactId>silence-job-common-model</artifactId>
+                <version>${silence-job-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.old.silence</groupId>
+                <artifactId>silence-job-common-enum</artifactId>
+                <version>${silence-job-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.old.silence</groupId>
+                <artifactId>silence-job-common-client-api</artifactId>
+                <version>${silence-job-common.version}</version>
+            </dependency>
+            
+            <!-- Platform Data Dependencies -->
+            <dependency>
+                <groupId>com.old.silence</groupId>
+                <artifactId>platform-data-commons</artifactId>
+                <version>2.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.old.silence</groupId>
+                <artifactId>platform-data-mybatis-plus</artifactId>
+                <version>2.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.old.silence</groupId>
+                <artifactId>silence-job-server-retry-task</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.old.silence</groupId>
+                <artifactId>silence-job-server-job-task</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.old.silence</groupId>
+                <artifactId>silence-job-server-support</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.old.silence</groupId>
+                <artifactId>silence-job-server-rpc</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.old.silence</groupId>
+                <artifactId>silence-job-server-scheduler</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.old.silence</groupId>
+                <artifactId>silence-job-server-task-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.old.silence</groupId>
+                <artifactId>silence-job-server-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.old.silence</groupId>
+                <artifactId>silence-job-server-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            
+            <!-- Third Party Dependencies -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.5.3.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>3.5.3.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.pekko</groupId>
+                <artifactId>pekko-actor-typed_2.13</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.pekko</groupId>
+                <artifactId>pekko-actor-testkit-typed_2.13</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.pekko</groupId>
+                <artifactId>pekko-actor_2.13</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>32.1.2-jre</version>
+            </dependency>
+            <dependency>
+                <groupId>org.perf4j</groupId>
+                <artifactId>perf4j</artifactId>
+                <version>0.9.16</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.rholder</groupId>
+                <artifactId>guava-retrying</artifactId>
+                <version>2.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-library</artifactId>
+                <version>2.13.12</version>
+            </dependency>
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-netty-shaded</artifactId>
+                <version>1.58.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-protobuf</artifactId>
+                <version>1.58.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-stub</artifactId>
+                <version>1.58.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-api</artifactId>
+                <version>1.58.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-util</artifactId>
+                <version>1.58.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.googlecode.aviator</groupId>
+                <artifactId>aviator</artifactId>
+                <version>5.3.3</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>QLExpress</artifactId>
+                <version>3.3.1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

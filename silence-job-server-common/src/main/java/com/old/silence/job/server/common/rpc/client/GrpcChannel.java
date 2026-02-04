@@ -13,7 +13,7 @@ import com.old.silence.job.common.enums.HeadersEnum;
 import com.old.silence.job.common.grpc.auto.GrpcResult;
 import com.old.silence.job.common.grpc.auto.GrpcSilenceJobRequest;
 import com.old.silence.job.common.grpc.auto.Metadata;
-import com.old.silence.job.common.util.NetUtil;
+import com.old.silence.job.common.util.NetUtils;
 import com.old.silence.job.log.SilenceJobLog;
 import com.old.silence.job.server.common.config.SystemProperties;
 import com.old.silence.job.server.common.config.SystemProperties.RpcClientProperties;
@@ -72,7 +72,7 @@ public class GrpcChannel {
             }
         }
         headersMap.put(HeadersEnum.HOST_ID.getKey(), ServerRegister.CURRENT_CID);
-        headersMap.put(HeadersEnum.HOST_IP.getKey(), NetUtil.getLocalIpStr());
+        headersMap.put(HeadersEnum.HOST_IP.getKey(), NetUtils.getLocalIpStr());
         headersMap.put(HeadersEnum.GROUP_NAME.getKey(), ServerRegister.GROUP_NAME);
         headersMap.put(HeadersEnum.HOST_PORT.getKey(), getServerPort());
         headersMap.put(HeadersEnum.NAMESPACE.getKey(), SystemConstants.DEFAULT_NAMESPACE);
