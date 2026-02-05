@@ -19,6 +19,7 @@ import com.old.silence.job.server.common.util.DateUtils;
 import com.old.silence.job.server.domain.model.GroupConfig;
 import com.old.silence.job.server.domain.model.Job;
 import com.old.silence.job.server.exception.SilenceJobServerException;
+import com.old.silence.job.server.infrastructure.persistence.dao.GroupConfigDao;
 import com.old.silence.job.server.infrastructure.persistence.dao.JobDao;
 import com.old.silence.job.server.job.task.dto.JobTaskPrepareDTO;
 import com.old.silence.job.server.job.task.support.JobPrepareHandler;
@@ -32,13 +33,13 @@ import com.old.silence.job.server.job.task.support.JobTaskConverter;
 @Component
 public class OpenApiTriggerJobRequestHandler extends PostHttpRequestHandler {
     private final JobDao jobDao;
-    private final AccessTemplate accessTemplate;
+    private final GroupConfigDao groupConfigDao;
     private final JobPrepareHandler terminalJobPrepareHandler;
 
-    public OpenApiTriggerJobRequestHandler(JobDao jobDao, AccessTemplate accessTemplate,
+    public OpenApiTriggerJobRequestHandler(JobDao jobDao, GroupConfigDao groupConfigDao,
                                            JobPrepareHandler terminalJobPrepareHandler) {
         this.jobDao = jobDao;
-        this.accessTemplate = accessTemplate;
+        this.groupConfigDao = groupConfigDao;
         this.terminalJobPrepareHandler = terminalJobPrepareHandler;
     }
 
@@ -61,7 +62,7 @@ public class OpenApiTriggerJobRequestHandler extends PostHttpRequestHandler {
         Job job = jobDao.selectById(jobTriggerDTO.getJobId());
         Assert.notNull(job, () -> new SilenceJobServerException("job can not be null."));
 
-        long count = accessTemplate.getGroupConfigAccess().count(new LambdaQueryWrapper<GroupConfig>()
+        long count = groupConfigDao.selectCount(new LambdaQueryWrapper<GroupConfig>()
                 .eq(GroupConfig::getGroupName, job.getGroupName())
                 .eq(GroupConfig::getNamespaceId, job.getNamespaceId())
                 .eq(GroupConfig::getGroupStatus, true)

@@ -20,6 +20,7 @@ import com.old.silence.job.server.common.util.DateUtils;
 import com.old.silence.job.server.domain.model.GroupConfig;
 import com.old.silence.job.server.domain.model.Workflow;
 import com.old.silence.job.server.exception.SilenceJobServerException;
+import com.old.silence.job.server.infrastructure.persistence.dao.GroupConfigDao;
 import com.old.silence.job.server.infrastructure.persistence.dao.WorkflowDao;
 import com.old.silence.job.server.job.task.dto.WorkflowTaskPrepareDTO;
 import com.old.silence.job.server.job.task.support.WorkflowPrePareHandler;
@@ -36,13 +37,13 @@ import java.util.Set;
 @Component
 public class OpenApiTriggerWorkFlowRequestHandler extends PostHttpRequestHandler {
     private final WorkflowDao workflowDao;
-    private final AccessTemplate accessTemplate;
+    private final GroupConfigDao groupConfigDao;
     private final WorkflowPrePareHandler terminalWorkflowPrepareHandler;
 
-    public OpenApiTriggerWorkFlowRequestHandler(WorkflowDao workflowDao, AccessTemplate accessTemplate,
+    public OpenApiTriggerWorkFlowRequestHandler(WorkflowDao workflowDao, GroupConfigDao groupConfigDao,
                                                 WorkflowPrePareHandler terminalWorkflowPrepareHandler) {
         this.workflowDao = workflowDao;
-        this.accessTemplate = accessTemplate;
+        this.groupConfigDao = groupConfigDao;
         this.terminalWorkflowPrepareHandler = terminalWorkflowPrepareHandler;
     }
 
@@ -72,7 +73,7 @@ public class OpenApiTriggerWorkFlowRequestHandler extends PostHttpRequestHandler
             // 判断任务节点相关组有无关闭，存在关闭组则停止执行工作流执行
             if (CollectionUtil.isNotEmpty(namesSet)) {
                 for (String groupName : namesSet) {
-                    long count = accessTemplate.getGroupConfigAccess().count(
+                    long count = groupConfigDao.selectCount(
                             new LambdaQueryWrapper<GroupConfig>()
                                     .eq(GroupConfig::getGroupName, groupName)
                                     .eq(GroupConfig::getNamespaceId, workflow.getNamespaceId())
