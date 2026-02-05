@@ -61,6 +61,7 @@ import com.old.silence.job.server.dto.WorkflowTriggerVO;
 import com.old.silence.job.server.exception.SilenceJobServerException;
 import com.old.silence.job.server.handler.GroupHandler;
 import com.old.silence.job.server.handler.WorkflowHandler;
+import com.old.silence.job.server.infrastructure.persistence.dao.GroupConfigDao;
 import com.old.silence.job.server.infrastructure.persistence.dao.JobDao;
 import com.old.silence.job.server.infrastructure.persistence.dao.JobSummaryDao;
 import com.old.silence.job.server.infrastructure.persistence.dao.WorkflowDao;
@@ -88,7 +89,7 @@ public class WorkflowService  {
     private final WorkflowHandler workflowHandler;
     private final WorkflowPrePareHandler terminalWorkflowPrepareHandler;
     private final JobDao jobDao;
-    private final AccessTemplate accessTemplate;
+    private final GroupConfigDao groupConfigDao;
     private final GroupHandler groupHandler;
     private final JobSummaryDao jobSummaryDao;
     private final WorkflowMapper workflowMapper;
@@ -96,7 +97,7 @@ public class WorkflowService  {
     public WorkflowService(WorkflowDao workflowDao, WorkflowNodeDao workflowNodeDao,
                            SystemProperties systemProperties, WorkflowHandler workflowHandler,
                            WorkflowPrePareHandler terminalWorkflowPrepareHandler, JobDao jobDao,
-                           AccessTemplate accessTemplate, GroupHandler groupHandler,
+                           GroupConfigDao groupConfigDao, GroupHandler groupHandler,
                            JobSummaryDao jobSummaryDao, WorkflowMapper workflowMapper) {
         this.workflowDao = workflowDao;
         this.workflowNodeDao = workflowNodeDao;
@@ -104,7 +105,7 @@ public class WorkflowService  {
         this.workflowHandler = workflowHandler;
         this.terminalWorkflowPrepareHandler = terminalWorkflowPrepareHandler;
         this.jobDao = jobDao;
-        this.accessTemplate = accessTemplate;
+        this.groupConfigDao = groupConfigDao;
         this.groupHandler = groupHandler;
         this.jobSummaryDao = jobSummaryDao;
         this.workflowMapper = workflowMapper;
@@ -263,7 +264,7 @@ public class WorkflowService  {
         Workflow workflow = workflowDao.selectById(triggerVO.getWorkflowId());
         Assert.notNull(workflow, () -> new SilenceJobServerException("workflow can not be null."));
 
-        long count = accessTemplate.getGroupConfigAccess().count(
+        long count = groupConfigDao.selectCount(
                 new LambdaQueryWrapper<GroupConfig>()
                         .eq(GroupConfig::getGroupName, workflow.getGroupName())
                         .eq(GroupConfig::getNamespaceId, workflow.getNamespaceId())

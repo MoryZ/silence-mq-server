@@ -42,6 +42,7 @@ import com.old.silence.job.server.dto.ExportJobVO;
 import com.old.silence.job.server.dto.JobTriggerVO;
 import com.old.silence.job.server.exception.SilenceJobServerException;
 import com.old.silence.job.server.handler.GroupHandler;
+import com.old.silence.job.server.infrastructure.persistence.dao.GroupConfigDao;
 import com.old.silence.job.server.infrastructure.persistence.dao.JobDao;
 import com.old.silence.job.server.infrastructure.persistence.dao.JobSummaryDao;
 import com.old.silence.job.server.infrastructure.persistence.dao.SystemUserDao;
@@ -61,7 +62,7 @@ public class JobService {
     private final SystemProperties systemProperties;
     private final JobDao jobDao;
     private final JobPrepareHandler terminalJobPrepareHandler;
-    private final AccessTemplate accessTemplate;
+    private final GroupConfigDao groupConfigDao;
     private final GroupHandler groupHandler;
     private final JobSummaryDao jobSummaryDao;
     private final SystemUserDao systemUserDao;
@@ -69,13 +70,13 @@ public class JobService {
     private final JobMapper jobMapper;
 
     public JobService(SystemProperties systemProperties, JobDao jobDao,
-                      JobPrepareHandler terminalJobPrepareHandler, AccessTemplate accessTemplate,
+                      JobPrepareHandler terminalJobPrepareHandler, GroupConfigDao groupConfigDao,
                       GroupHandler groupHandler, JobSummaryDao jobSummaryDao,
                       SystemUserDao systemUserDao, JobResponseVOMapper jobResponseVOMapper, JobMapper jobMapper) {
         this.systemProperties = systemProperties;
         this.jobDao = jobDao;
         this.terminalJobPrepareHandler = terminalJobPrepareHandler;
-        this.accessTemplate = accessTemplate;
+        this.groupConfigDao = groupConfigDao;
         this.groupHandler = groupHandler;
         this.jobSummaryDao = jobSummaryDao;
         this.systemUserDao = systemUserDao;
@@ -176,7 +177,7 @@ public class JobService {
         Job job = jobDao.selectById(id);
         Assert.notNull(job, () -> new SilenceJobServerException("job can not be null."));
 
-        long count = accessTemplate.getGroupConfigAccess().count(new LambdaQueryWrapper<GroupConfig>()
+        long count = groupConfigDao.selectCount(new LambdaQueryWrapper<GroupConfig>()
                 .eq(GroupConfig::getGroupName, job.getGroupName())
                 .eq(GroupConfig::getGroupStatus, true)
         );

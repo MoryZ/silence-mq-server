@@ -13,15 +13,16 @@ import com.old.silence.core.util.CollectionUtils;
 import com.old.silence.job.common.util.StreamUtils;
 import com.old.silence.job.server.domain.model.GroupConfig;
 import com.old.silence.job.server.exception.SilenceJobServerException;
+import com.old.silence.job.server.infrastructure.persistence.dao.GroupConfigDao;
 
 
 @Component
 public class GroupHandler {
 
-    private final AccessTemplate accessTemplate;
+    private final GroupConfigDao groupConfigDao;
 
-    public GroupHandler(AccessTemplate accessTemplate) {
-        this.accessTemplate = accessTemplate;
+    public GroupHandler(GroupConfigDao groupConfigDao) {
+        this.groupConfigDao = groupConfigDao;
     }
 
     /**
@@ -31,8 +32,8 @@ public class GroupHandler {
      */
     public void validateGroupExistence(Set<String> groupNameSet) {
         Assert.notEmpty(groupNameSet, () -> new SilenceJobServerException("组不能为空"));
-        List<GroupConfig> groupConfigs = accessTemplate.getGroupConfigAccess()
-                .list(new LambdaQueryWrapper<GroupConfig>()
+        List<GroupConfig> groupConfigs = groupConfigDao
+                .selectList(new LambdaQueryWrapper<GroupConfig>()
                         .select(GroupConfig::getGroupName)
                         .in(GroupConfig::getGroupName, groupNameSet)
                 );
