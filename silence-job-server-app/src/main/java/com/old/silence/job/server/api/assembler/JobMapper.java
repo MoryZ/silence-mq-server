@@ -15,7 +15,7 @@ import java.math.BigInteger;
 import java.util.Set;
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface JobMapper extends Converter<JobCommand, Job> {
 
     @Override

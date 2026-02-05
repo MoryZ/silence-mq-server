@@ -16,7 +16,6 @@ import java.util.List;
  *
  */
 @Component
-
 public class StartListener implements ApplicationListener<ContextRefreshedEvent> {
     private final List<Lifecycle> lifecycleList;
     private volatile boolean isStarted = false;

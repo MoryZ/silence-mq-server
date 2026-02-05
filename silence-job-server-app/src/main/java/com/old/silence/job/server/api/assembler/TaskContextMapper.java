@@ -9,7 +9,7 @@ import com.old.silence.job.server.dto.RetrySaveRequestCommand;
 import com.old.silence.job.server.retry.task.support.generator.retry.TaskContext;
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface TaskContextMapper extends Converter<RetrySaveRequestCommand, TaskContext.TaskInfo> {
     TaskContextMapper INSTANCE = Mappers.getMapper(TaskContextMapper.class);
 

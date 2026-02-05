@@ -8,7 +8,7 @@ import com.old.silence.job.server.domain.model.Retry;
 import com.old.silence.job.server.dto.RetryCommand;
 import com.old.silence.job.server.retry.task.dto.RetryTaskPrepareDTO;
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface RetryMapper extends Converter<RetryCommand, Retry> {
 
     @Override

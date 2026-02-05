@@ -8,7 +8,7 @@ import com.old.silence.job.server.domain.model.GroupConfig;
 import com.old.silence.job.server.dto.GroupConfigCommand;
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface GroupConfigMapper extends Converter<GroupConfigCommand, GroupConfig> {
 
 

@@ -50,7 +50,7 @@ public class DispatchService implements Lifecycle {
             try {
                 // 当正在re balance时延迟10s，尽量等待所有节点都完成re balance
                 if (DistributeInstance.RE_BALANCE_ING.get()) {
-                    SilenceJobLog.LOCAL.info("正在re balance中....");
+                    SilenceJobLog.LOCAL.info("正在rebalance中....");
                     TimeUnit.SECONDS.sleep(INITIAL_DELAY);
                 }
 

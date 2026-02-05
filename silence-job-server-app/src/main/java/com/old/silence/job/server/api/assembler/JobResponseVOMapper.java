@@ -18,7 +18,7 @@ import java.util.Objects;
 import java.util.Set;
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface JobResponseVOMapper extends Converter<Job, JobResponseVO> {
 
 

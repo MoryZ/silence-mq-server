@@ -14,7 +14,7 @@ import java.math.RoundingMode;
 import java.util.Objects;
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface JobSummaryResponseVOMapper extends Converter<DashboardCardResponseDO.JobTask, DashboardCardResponseVO.JobTask> {
 
 

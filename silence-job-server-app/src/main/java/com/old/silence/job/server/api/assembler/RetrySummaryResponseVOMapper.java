@@ -8,7 +8,7 @@ import com.old.silence.job.server.vo.DashboardCardResponseDO;
 import com.old.silence.job.server.vo.DashboardCardResponseVO;
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface RetrySummaryResponseVOMapper extends Converter<DashboardCardResponseDO.RetryTask, DashboardCardResponseVO.RetryTask> {
 
 

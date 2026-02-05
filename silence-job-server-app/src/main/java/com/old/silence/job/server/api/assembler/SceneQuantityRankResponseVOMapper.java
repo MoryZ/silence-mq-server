@@ -7,7 +7,7 @@ import com.old.silence.job.server.vo.DashboardRetryLineResponseDO;
 import com.old.silence.job.server.vo.DashboardRetryLineResponseVO;
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface SceneQuantityRankResponseVOMapper extends Converter<DashboardRetryLineResponseDO.Rank, DashboardRetryLineResponseVO.Rank> {
 
 

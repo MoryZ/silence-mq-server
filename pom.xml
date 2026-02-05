@@ -81,6 +81,11 @@
                 <artifactId>platform-data-mybatis-plus</artifactId>
                 <version>2.0.1-SNAPSHOT</version>
             </dependency>
+            <dependency>
+                <groupId>com.old.silence</groupId>
+                <artifactId>platform-cloud-config</artifactId>
+                <version>2.0.1-SNAPSHOT</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.old.silence</groupId>
@@ -124,16 +129,6 @@
             </dependency>
             
             <!-- Third Party Dependencies -->
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>3.5.3.1</version>
-            </dependency>
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-extension</artifactId>
-                <version>3.5.3.1</version>
-            </dependency>
             <dependency>
                 <groupId>org.apache.pekko</groupId>
                 <artifactId>pekko-actor-typed_2.13</artifactId>

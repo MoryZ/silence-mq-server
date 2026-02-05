@@ -8,7 +8,7 @@ import com.old.silence.job.server.vo.RetryTaskResponseVO;
 
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface RetryTaskLogResponseVOMapper extends Converter<RetryTask, RetryTaskResponseVO> {
 
 

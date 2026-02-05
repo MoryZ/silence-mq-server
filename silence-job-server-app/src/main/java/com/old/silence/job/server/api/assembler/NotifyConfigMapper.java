@@ -11,7 +11,7 @@ import com.old.silence.job.server.dto.NotifyConfigCommand;
 
 import java.util.Set;
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface NotifyConfigMapper extends Converter<NotifyConfigCommand, NotifyConfig> {
 
 

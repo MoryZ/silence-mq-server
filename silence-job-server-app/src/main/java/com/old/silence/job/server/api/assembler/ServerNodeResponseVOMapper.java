@@ -7,7 +7,7 @@ import com.old.silence.job.server.domain.model.ServerNode;
 import com.old.silence.job.server.vo.ServerNodeResponseVO;
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface ServerNodeResponseVOMapper extends Converter<ServerNode, ServerNodeResponseVO> {
 
 

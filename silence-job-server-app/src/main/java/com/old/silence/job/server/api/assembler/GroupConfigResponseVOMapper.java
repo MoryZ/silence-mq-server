@@ -10,7 +10,7 @@ import com.old.silence.job.server.domain.model.GroupConfig;
 import com.old.silence.job.server.vo.GroupConfigResponseVO;
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface GroupConfigResponseVOMapper extends Converter<GroupConfig, GroupConfigResponseVO> {
 
 

@@ -8,7 +8,7 @@ import com.old.silence.job.server.vo.RetryDeadLetterResponseVO;
 
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface RetryDeadLetterResponseVOMapper extends Converter<RetryDeadLetter, RetryDeadLetterResponseVO> {
 
 

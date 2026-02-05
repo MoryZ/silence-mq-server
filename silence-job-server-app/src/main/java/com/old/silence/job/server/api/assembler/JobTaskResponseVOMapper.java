@@ -8,7 +8,7 @@ import com.old.silence.job.server.domain.model.JobTask;
 import com.old.silence.job.server.vo.JobTaskResponseVO;
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface JobTaskResponseVOMapper extends Converter<JobTask, JobTaskResponseVO> {
 
 

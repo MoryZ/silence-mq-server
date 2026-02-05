@@ -9,7 +9,7 @@ import com.old.silence.job.server.dto.UserSessionVO;
 import com.old.silence.job.server.vo.SystemUserResponseVO;
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface SystemUserResponseVOMapper extends Converter<SystemUser, SystemUserResponseVO> {
 
     SystemUserResponseVO convert(UserSessionVO systemUser);

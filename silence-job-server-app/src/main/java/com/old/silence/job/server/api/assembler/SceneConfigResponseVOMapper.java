@@ -15,7 +15,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface SceneConfigResponseVOMapper extends Converter<RetrySceneConfig, SceneConfigResponseVO> {
 
 

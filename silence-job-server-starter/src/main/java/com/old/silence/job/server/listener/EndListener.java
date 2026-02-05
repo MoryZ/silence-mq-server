@@ -22,7 +22,7 @@ public class EndListener implements ApplicationListener<ContextClosedEvent> {
     private final List<Lifecycle> lifecycles= new ArrayList<>();
 
     public EndListener(ObjectProvider<Lifecycle> objectProvider) {
-        var lifecycleList = objectProvider.stream().collect(Collectors.toList());
+        var lifecycleList = objectProvider.stream().toList();
         lifecycles.addAll(lifecycleList);
     }
 

@@ -10,7 +10,7 @@ import com.old.silence.job.server.vo.CommonLabelValueResponseVO;
 import com.old.silence.job.server.vo.NotifyRecipientResponseVO;
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface NotifyRecipientMapper extends Converter<NotifyRecipientCommand, NotifyRecipient> {
 
 

@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>silence-job-server-starter</artifactId>
-    <name>SilenceJob Server Starter</name>
+    <name>silence-job-server-starter</name>
     <description>Spring Boot Starter for SilenceJob Server auto-configuration</description>
 
     <dependencies>
@@ -19,10 +19,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         
         <!-- SilenceJob Server Modules -->
@@ -57,10 +53,22 @@
             <version>${project.version}</version>
         </dependency>
         
+        <!-- Platform Config -->
+        <dependency>
+            <groupId>com.old.silence</groupId>
+            <artifactId>platform-cloud-config</artifactId>
+        </dependency>
+        
         <!-- Spring Framework -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.1.0</version>
         </dependency>
     </dependencies>
 

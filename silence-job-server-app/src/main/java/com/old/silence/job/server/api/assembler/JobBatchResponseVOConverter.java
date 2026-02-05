@@ -13,7 +13,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface JobBatchResponseVOConverter extends Converter<JobBatchResponseDO, JobBatchResponseVO> {
 
 

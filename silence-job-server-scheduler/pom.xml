@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>silence-job-server-scheduler</artifactId>
-    <name>Silence Job Server Scheduler</name>
+    <name>silence-job-server-scheduler</name>
     <description>Scheduling and execution layer (Node allocation, Pekko actors, Task scheduling)</description>
 
     <dependencies>

@@ -9,7 +9,7 @@ import com.old.silence.job.server.vo.DashboardLineResponseVO;
 /**
  * @author moryzang
  */
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface DashboardLineResponseVOMapper extends Converter<DashboardLineResponseDO, DashboardLineResponseVO> {
 
 

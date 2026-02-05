@@ -9,7 +9,7 @@ import com.old.silence.job.server.vo.NamespaceResponseVO;
 
 
 
-@Mapper(uses = MapStructSpringConfig.class)
+@Mapper(componentModel = "spring", uses = MapStructSpringConfig.class)
 public interface NamespaceMapper extends Converter<NamespaceCommand, Namespace> {
 
     NamespaceResponseVO convert(Namespace namespace);
